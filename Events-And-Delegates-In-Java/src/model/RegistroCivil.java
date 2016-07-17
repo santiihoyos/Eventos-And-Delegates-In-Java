@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author santiago
  */
-public class RegistroCivil {//implements PersonaListener {
+public class RegistroCivil {
 
     private ArrayList<Persona> personas;
 
@@ -18,21 +18,14 @@ public class RegistroCivil {//implements PersonaListener {
 
     public void registrarPersona(Persona newPersona) {
 
-        //newPersona.addOnNameChangeListener(this);
-        
-        newPersona.addOnNameChangeListener((Persona sender, String newName, String oldName) -> 
-        {    
+        newPersona.addOnNameChangeListener((Persona sender, String newName, String oldName) -> {
+            
             System.out.println(oldName + " ha cambiado de nombre y ahora se llama: " + newName);
+            
         });
 
         personas.add(newPersona);
 
     }
 
-//    @Override
-//    public void onPersonaChangeName(Persona sender, String newName, String oldName) {
-//        
-//        System.out.println(oldName + " ha cambiado de nombre y ahora se llama: " + newName);
-//        
-//    }
 }

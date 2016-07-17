@@ -36,18 +36,30 @@ public class Persona {
 
     }
 
+    //--------------LISTENERS DEFINITIONS---------
+    public interface PersonaListener {
+
+        public void onPersonaChangeName(Persona sender, String newName, String oldName);
+
+    }
+
+    //---------------GETTERS AND SETTERS----------------------------- 
     public String getName() {
         return name;
     }
 
+    //Example of set method that invoke all list of listeners
     public void setName(String name) {
 
-        listeners.stream().forEach((listener) -> { listener.onPersonaChangeName(this, name, this.name); });
+        listeners.stream().forEach((listener) -> {
+            
+            listener.onPersonaChangeName(this, name, this.name);
+            
+        });
 
         this.name = name;
     }
 
-    //not important  other getters and setters
     public String getApellido() {
         return apellido;
     }
