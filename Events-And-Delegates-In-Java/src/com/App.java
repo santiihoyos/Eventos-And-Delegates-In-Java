@@ -1,7 +1,6 @@
 package com;
 
 import model.Persona;
-import model.PersonaListener;
 import model.RegistroCivil;
 
 /**

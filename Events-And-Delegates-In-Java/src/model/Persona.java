@@ -42,16 +42,12 @@ public class Persona {
 
     public void setName(String name) {
 
-        for (PersonaListener listener : listeners) {
-
-            listener.onPersonaChangeName(this, name, this.name);
-
-        }
+        listeners.stream().forEach((listener) -> { listener.onPersonaChangeName(this, name, this.name); });
 
         this.name = name;
     }
 
-    //not important  
+    //not important  other getters and setters
     public String getApellido() {
         return apellido;
     }
@@ -66,10 +62,6 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-    public void AddOnNameListener() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
