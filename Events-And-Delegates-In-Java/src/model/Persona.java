@@ -24,13 +24,13 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void addOnNameChangeListener(PersonaListener listener) {
+    public void addPersonaListener(PersonaListener listener) {
 
         listeners.add(listener);
 
     }
 
-    public void removeAllOnNameChangeListener() {
+    public void removeAllPersonaListener() {
 
         listeners.clear();
 
@@ -39,41 +39,51 @@ public class Persona {
     //--------------LISTENERS DEFINITIONS---------
     public interface PersonaListener {
 
-        public void onPersonaChangeName(Persona sender, String newName, String oldName);
+        public void onNameChange(Persona sender, String newName, String oldName);
+
+        public void onApellidoChange(Persona sender, String newApellido, String oldApellido);
+
+        public void onEdadChange(Persona sender, int newEdad, int oldEdad);
 
     }
 
-    //---------------GETTERS AND SETTERS----------------------------- 
-    public String getName() {
-        return name;
-    }
+    //---------------------------------------------------------SETTERS----------------------------------------------------
 
-    //Example of set method that invoke all list of listeners
+    //Example of set method that invoke all list of listeners when the name change will be notify to all.
     public void setName(String name) {
 
-        listeners.stream().forEach((listener) -> {
-            
-            listener.onPersonaChangeName(this, name, this.name);
-            
-        });
-
+        listeners.stream().forEach((listener) -> {listener.onNameChange(this, name, this.name);});
         this.name = name;
+        
+    }
+
+    public void setApellido(String apellido) {
+        
+        listeners.stream().forEach((listener) -> {listener.onApellidoChange(this, apellido, this.apellido);});
+        this.apellido = apellido;
+        
+    }
+
+    public void setEdad(int edad) {
+        
+        listeners.stream().forEach((listener) -> {listener.onEdadChange(this, edad, this.edad);});
+        this.edad = edad;
+        
+    }    
+    
+    
+  //-------------------------------------------------GETTERS---------------------------------------------------- 
+    
+    public String getName() {
+        return name;
     }
 
     public String getApellido() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public int getEdad() {
         return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
 }
