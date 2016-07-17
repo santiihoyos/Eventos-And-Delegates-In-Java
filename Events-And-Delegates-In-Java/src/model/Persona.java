@@ -24,9 +24,15 @@ public class Persona {
         this.edad = edad;
     }
 
-    public void AddOnNameListener(PersonaListener listener) {
+    public void addOnNameChangeListener(PersonaListener listener) {
 
         listeners.add(listener);
+
+    }
+
+    public void removeAllOnNameChangeListener() {
+
+        listeners.clear();
 
     }
 
@@ -34,20 +40,18 @@ public class Persona {
         return name;
     }
 
-    public void setName(String name) { 
+    public void setName(String name) {
 
         for (PersonaListener listener : listeners) {
 
-            listener.onPersonaChangeName(this,name,this.name);
+            listener.onPersonaChangeName(this, name, this.name);
 
         }
 
         this.name = name;
     }
-    
-    
+
     //not important  
-    
     public String getApellido() {
         return apellido;
     }
@@ -62,6 +66,10 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public void AddOnNameListener() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
