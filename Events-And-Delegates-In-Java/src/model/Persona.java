@@ -17,11 +17,10 @@ public class Persona {
     public Persona(String name, String apellido, int edad) {
 
         listeners = new ArrayList<>();
-
         setName(name);
-
-        this.apellido = apellido;
-        this.edad = edad;
+        setApellido(apellido);
+        setEdad(edad);
+        
     }
 
     public void addPersonaListener(PersonaListener listener) {
