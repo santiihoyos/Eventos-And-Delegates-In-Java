@@ -19,14 +19,8 @@ public class RegistroCivil {//implements PersonaListener {
     public void registrarPersona(Persona newPersona) {
 
         //newPersona.AddOnNameListener(this);
-        newPersona.AddOnNameListener(new PersonaListener() {
-
-            @Override
-            public void onPersonaChangeName(Persona sender, String newName, String oldName) {
-
-                System.out.println(oldName + " ha cambiado de nombre y ahora se llama: " + newName);
-
-            }
+        newPersona.AddOnNameListener((Persona sender, String newName, String oldName) -> {
+            System.out.println(oldName + " ha cambiado de nombre y ahora se llama: " + newName);
         });
 
         personas.add(newPersona);
