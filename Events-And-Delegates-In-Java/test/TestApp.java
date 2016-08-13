@@ -10,19 +10,6 @@ import org.junit.Test;
 public class TestApp extends junit.framework.TestCase {
 
     @Test
-    public void testAppMain_OkSiNoHayException() {
-
-        try {
-            App.main(new String[]{"esta ejecucion es un test"});
-        } catch (Exception ex) {
-            assertTrue(
-                    "Se ha lanzado un error desde main que no coincide con el esperado por el test. "
-                    + ex.getMessage(),
-                    ex.getMessage().equals("holaTest"));
-        }
-    }
-
-    @Test
     public void testListener_OkSiSeLLamaAlListenerAsignado() {
 
         //Given

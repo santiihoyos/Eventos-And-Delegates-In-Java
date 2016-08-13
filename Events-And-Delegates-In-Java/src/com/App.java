@@ -9,7 +9,7 @@ import model.CivelRegistration;
  */
 public class App {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
 
         System.out.println("Init of the example!\n");
         CivelRegistration registro = new CivelRegistration();
@@ -85,12 +85,6 @@ public class App {
         p1.setLastName("Zea");
         p1.setAge(22);
         System.out.println("\nEnd of the example!");
-
-        if (args[0].equals("esta ejecucion es un test")) {
-
-            throw new Exception("holaTest");
-
-        }
 
     }
 
