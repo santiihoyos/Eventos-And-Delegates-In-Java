@@ -1,2 +1,12 @@
 /Events-And-Delegates-In-Java/nbproject/private/
 /Events-And-Delegates-In-Java/build/
+
+# Intellij
+*.iml
+Events-And-Delegates-In_Java__IntellijI_IDEA/.idea/workspace.xml
+Events-And-Delegates-In_Java__IntellijI_IDEA/.idea/libraries
+
+# Package Files #
+*.jar
+*.war
+*.ear
